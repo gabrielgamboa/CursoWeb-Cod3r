@@ -1,0 +1,9 @@
+/* referenciar id's */
+#textoPrincipal {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0 10px 0 0;
+    background-color: #444;
+    margin-bottom: 50px;
+}

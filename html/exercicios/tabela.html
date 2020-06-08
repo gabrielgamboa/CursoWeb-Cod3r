@@ -1,0 +1,64 @@
+<table>
+
+    <caption>Produtos</caption>
+
+    <thead> <!-- Table Header-->
+        <tr> <!--Table Row-->
+            <th>Produto</th> <!-- Table head-->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr> 
+            <td>iPad</td> <!-- Table Data -->
+            <td>3.200</td>
+            <td>2</td>
+            <td>6.400</td>
+        </tr>
+
+        <tr>
+            <td>Notebook</td>
+            <td>3.000</td>
+            <td>3</td>
+            <td>9.000</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <!-- Usamos o COLSPAN e ROWSPAN para flexibilizarmos as linhas e colunas que queremos utilizar no rodapé -->
+            <td colspan="3">Total</td> <!-- OCUPAR 3 COLUNAS-->
+            <td>15.400</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+
+
+<style>
+    table {
+        border-collapse: collapse; /*Não ter borda*/
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    thead tr {
+        border-bottom: solid 3px #444;
+    }
+
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444444;
+        color: #ffffff;
+        font-weight: bold;
+    }
+</style>
