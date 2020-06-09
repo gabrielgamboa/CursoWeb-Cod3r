@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <title>Origem CSS: Externo, Interno e Inline</title>
     <style>
-        /* ... */
+        body {
+            background-color: aquamarine;
+        }
     </style>
+
+    <link rel="stylesheet" href="css/externo.css">
+    <!-- terá preferencia o CSS que for processado por último -->
 </head>
 
-<body>
+<body style="background-color: coral;">
+    <!-- dentro do componente possui preferencia máxima, porém não é uma boa prática -->
     <h1>E agora?</h1>
 </body>
 
