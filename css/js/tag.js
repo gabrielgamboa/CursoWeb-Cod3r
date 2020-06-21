@@ -30,3 +30,5 @@ document.querySelectorAll('.tag').forEach(elemento => {
         elemento.insertBefore(label, elemento.childNodes[0])
     }
 });
+
+

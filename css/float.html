@@ -11,18 +11,28 @@
 
         .c1 {
             background-color: red;
+            float: right; /*joga o elemento na direita da mesma linha, porém o resto sobrepoe a posição inicial*/
         }
 
         .c2 {
             background-color: green;
+            clear: right; /*arruma o problema mencionado acima*/
+            float: left;
         }
         
         .c3 {
             background-color: blue;
+            clear: both;
         }
 
         .c4 {
             background-color: orange;
+            float: right;
+        }
+
+        div {
+            height: 150px;
+            width: 150px;
         }
     </style>
 </head>

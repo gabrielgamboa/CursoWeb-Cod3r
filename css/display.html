@@ -5,7 +5,38 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body {
+            font-size: 40px;
+            color: #fff;
+            background-color: coral;
+        }
+
+        ul { 
+            padding:0;  
+        }
+
+        div  {
+            background-color: seagreen;
+        }
+
+        span {
+            background-color: dodgerblue;
+        }
+
+        li {
+            background-color: purple;
+        }
+
+        div, span, li {
+            width: 50%; /*valor relativo*/
+            width: 200px; /*valor absoluto*/
+            height: 80px;
+            padding-top: 30px;
+            text-align: center;
+            /* display: block; cada elemento na sua linha */
+            /* display: inline; deixa na mesma linha, não suporta altura e largura */
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -21,3 +52,7 @@
 </body>
 
 </html>
+
+
+
+a => b
