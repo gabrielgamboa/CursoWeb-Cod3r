@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+
+        //aula sobre CLASSLIST e seus métodos
+        
+        const classes = document.querySelector('div').classList
+        classes.add('destaque')
+        classes.remove('destaque')
+
+        // se tem, remove - se nao tem, adiciona
+        classes.toggle('destaque')
+
+        // se contém determinada classe
+        console.log(classes.contains('destaque'))
+
+        // quantidade de classes
+        console.log(classes.length) //1
+
+        classes.toggle('destaque')
+        console.log(classes.length) //0
+
+        classes.add('destaque')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        for (let c of classes) {
+            console.log(c)
+        }
+
+        classes.forEach(c => console.log(c))
+
+    </script>
+</body>
+
+</html>

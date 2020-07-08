@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            const item = e.target //div que disparou o evento
+            item.style.cursor = 'move'
+
+            //e.buttons = 1 se acontecer algum evento, 0 se não
+            if (e.buttons) {
+                //e.clientY/X é a altura ou largura que o mouse clicou na tela
+                //item.clientHeight/width é para que, quando eu arrastar, a div centralize
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
+    </script>
+</body>
