@@ -1,44 +1,56 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
-
-//dentro da pasta atual, sirva os arquivos estáticos
+ 
 app.use(express.static('.'))
-
-//pegar os dados de um form
-app.use(bodyParser.urlencoded({ extended: true }))
-
-//dar um parse no json para objeto
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-
+ 
 const multer = require('multer')
-
+ 
 const storage = multer.diskStorage({
-    destino: function (req, file, callback) {
+    destination: function(req, file, callback){
         callback(null, './upload')
     },
-    filename: function (req, file, callback) {
+    filename: function(req, file, callback){
         callback(null, `${Date.now()}_${file.originalname}`)
     }
 })
 
-const upload = multer({ storage }).single('arquivo')
 
-app.post('/upload', (req,res) => {
-    upload(req, res, err => {
-        if (err) {
-            return res.end('Ocorreu um erro.')
+const upload = multer ({ storage }).single('arquivo')
+ 
+app.post('/upload', (req, res) => {
+    upload (req, res, err => {
+        if(err){
+            return res.end('Ocorreu um erro')
         }
-
-        res.end('Concluido com sucesso')
+        res.end('Concluído com sucesso')
     })
 })
 
-app.post('/formulario', (req, res) => {
+
+ 
+app.post('/formulario', (req, res)=>{
     res.send({
         ...req.body,
-        id: 4
+        id: 1
     })
 })
 
-app.listen(3000, () => console.log('Executando servidor...'))
+
+ 
+app.get('/parOuImpar', (req, res)=>{
+    //req.body
+    //req.query
+    //req.params
+    const par = parseInt(req.query.numero) % 2 === 0
+    res.send({
+        resultado: par ? 'par' : 'impar'
+    })
+})
+
+
+ 
+// app.get('/teste', (req, res) => res.send('Ok'))
+app.listen(8080, () => console.log('Executando...'))

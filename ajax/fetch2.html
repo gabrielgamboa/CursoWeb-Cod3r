@@ -22,14 +22,14 @@
 
 <body class="conteudo exercicio">
     <h1>Formulário Via Fetch</h1>
-    <form name="usuarioForm" action="formulario" method="post">
+    <form name="usuarioForm" action="formulario" method="POST">
         <input type="text" name="nome" placeholder="Nome..." />
         <input type="text" name="sobrenome" placeholder="Sobrenome..." />
         <button>Salvar</button>
     </form>
     <div id="resultado"></div>
     <script>
-        document.usuarioForm.onsubmit = e => {
+        document.usuarioForm.onsubmit = async e => {
             e.preventDefault()
 
             const form = e.target
@@ -41,16 +41,23 @@
                 body: new URLSearchParams(data)
             }
 
-            fetch(form.action, options)
-                .then(resp => resp.json())
-                .then(json => {
-                    const resultado = document.getElementById('resultado')
-                    resultado.innerHTML = JSON.stringify(json)
-                }) 
-                .catch(e => {
-                    const resultado = document.getElementById('resultado')
-                    resultado.innerHTML = e
-                })
+            const resultado = document.getElementById('resultado')
+            // fetch(form.action, options)
+            //     .then(resp => resp.json())
+            //     .then(json => {
+            //         resultado.innerHTML = JSON.stringify(json)
+            //     })
+            //     .catch(e => {
+            //         resultado.innerHTML = e
+            //     })
+            
+            try {
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e) {
+                resultado.innerHTML = e
+            }
         }
     </script>
 </body>
