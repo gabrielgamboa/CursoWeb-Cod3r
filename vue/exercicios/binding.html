@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <!-- não funciona colocar o valor de um data dentro do atributo -->
+        <p><a href="{{ link }}">Canal?</a></p>
+
+        <!-- interpolação para o vue entender o conteudo (diretivas) -->
+        <p><a v-bind:href="link">Canal</a></p>
+        <!-- forma reduzida -->
+        <p><a :href="link">Canal 2</a></p>
+
+        <p>
+            <!-- atualização em duas vias utilizando o v-model -->
+            <input type="text" v-model="nome" > <br>
+            <span>{{ nome }}</span>
+        </p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                link: "https://youtube.com/cod3rcursos",
+                nome: 'Maria'
+            },
+            watch: {
+                // sempre que mudar o nome de algo que tem em data, vai chamar a função
+                nome(novoValor) {
+                    console.log(novoValor.toUpperCase())
+                }
+            },
+        })
+    </script>
+</body>
+</html>
