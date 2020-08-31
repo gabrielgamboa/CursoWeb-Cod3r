@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    
     <meta charset="UTF-8">
     <title>Aplicando Estilo</title>
     <link rel="stylesheet" href="/css/estilo.css">
@@ -11,10 +13,25 @@
         }
     </style>
 </head>
+
 <body class="exercicio">
+    <div id="app" v-on:click="aplicarCor = !aplicarCor"
+        
+        :class="{vermelho: aplicarCor}">
+        <!-- dá o biding para monitorar o atributo, {classeQvoceQuer: valorBooleanoDizendoSeSeráAplicadaOuNao } -->
+        Teste
+    </div>
+
 
     <script>
-        // ...
+        new Vue({
+            el: "#app",
+            data: {
+                aplicarCor: false
+            }
+
+        })
     </script>
 </body>
+
 </html>
